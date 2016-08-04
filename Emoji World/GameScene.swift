@@ -6,40 +6,80 @@
 //  Copyright (c) 2016 Michael De La Cruz. All rights reserved.
 //
 
+
 import SpriteKit
 
 class GameScene: SKScene {
-    override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!"
-        myLabel.fontSize = 45
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
-        
-        self.addChild(myLabel)
+    
+    var level: Level!
+    
+    
+    let TileWidth: CGFloat = 32.0
+    let TileHeight: CGFloat = 36.0
+    
+    let gameLayer = SKNode()
+    let emojisLayer = SKNode()
+    
+    let tilesLayer = SKNode()
+
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder) is not used in this app")
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-       /* Called when a touch begins */
+    override init(size: CGSize) {
+        super.init(size: size)
         
-        for touch in touches {
-            let location = touch.locationInNode(self)
-            
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
+        anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        
+        let background = SKSpriteNode(imageNamed: "Background")
+        background.size = size
+        addChild(background)
+        
+        addChild(gameLayer)
+        
+        let layerPosition = CGPoint(
+            x: -TileWidth * CGFloat(NumColumns) / 2,
+            y: -TileHeight * CGFloat(NumRows) / 2)
+        
+        emojisLayer.position = layerPosition
+        gameLayer.addChild(tilesLayer)
+        
+        tilesLayer.position = layerPosition
+        gameLayer.addChild(emojisLayer)
+        
+    }
+    
+    func addTiles() {
+        for row in 0..<NumRows {
+            for column in 0..<NumColumns {
+                if level.tileAtColumn(column, row: row) != nil {
+                    let tileNode = SKSpriteNode(imageNamed: "Tile")
+                    tileNode.size = CGSize(width: TileWidth, height: TileHeight)
+                    tileNode.position = pointForColumn(column, row: row)
+                    tilesLayer.addChild(tileNode)
+                }
+            }
         }
     }
-   
-    override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+    
+    func addSpritesForEmojis(emojis: Set<Emoji>) {
+        for emoji in emojis {
+            let sprite = SKSpriteNode(imageNamed: emoji.emojiType.spriteName)
+            sprite.size = CGSize(width: TileWidth, height: TileHeight)
+            sprite.position = pointForColumn(emoji.column, row:emoji.row)
+            emojisLayer.addChild(sprite)
+            emoji.sprite = sprite
+        }
     }
+    
+    func pointForColumn(column: Int, row: Int) -> CGPoint {
+        return CGPoint(
+            x: CGFloat(column)*TileWidth + TileWidth/2,
+            y: CGFloat(row)*TileHeight + TileHeight/2)
+    }
+    
+  
+    
 }
+

@@ -8,24 +8,44 @@
 
 /* Begin PBXBuildFile section */
 		82AF429B1D52FFEA002168AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AF429A1D52FFEA002168AE /* AppDelegate.swift */; };
-		82AF429D1D52FFEA002168AE /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 82AF429C1D52FFEA002168AE /* GameScene.sks */; };
 		82AF429F1D52FFEA002168AE /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AF429E1D52FFEA002168AE /* GameScene.swift */; };
 		82AF42A11D52FFEA002168AE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AF42A01D52FFEA002168AE /* GameViewController.swift */; };
 		82AF42A41D52FFEA002168AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82AF42A21D52FFEA002168AE /* Main.storyboard */; };
 		82AF42A61D52FFEA002168AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82AF42A51D52FFEA002168AE /* Assets.xcassets */; };
 		82AF42A91D52FFEA002168AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82AF42A71D52FFEA002168AE /* LaunchScreen.storyboard */; };
+		82AF42B11D530287002168AE /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AF42B01D530287002168AE /* Emoji.swift */; };
+		82AF42B31D5313D0002168AE /* 2DArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AF42B21D5313D0002168AE /* 2DArray.swift */; };
+		82AF42B51D5315A0002168AE /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AF42B41D5315A0002168AE /* Level.swift */; };
+		82AF42B71D531D7B002168AE /* Emoji.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 82AF42B61D531D7B002168AE /* Emoji.atlas */; };
+		82AF42BB1D532B11002168AE /* Surface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AF42BA1D532B11002168AE /* Surface.swift */; };
+		82AF42BD1D532C55002168AE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AF42BC1D532C55002168AE /* Extensions.swift */; };
+		82AF42C61D53B7B9002168AE /* Level_0.json in Resources */ = {isa = PBXBuildFile; fileRef = 82AF42C11D53B7B9002168AE /* Level_0.json */; };
+		82AF42C71D53B7B9002168AE /* Level_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 82AF42C21D53B7B9002168AE /* Level_1.json */; };
+		82AF42C81D53B7B9002168AE /* Level_2.json in Resources */ = {isa = PBXBuildFile; fileRef = 82AF42C31D53B7B9002168AE /* Level_2.json */; };
+		82AF42C91D53B7B9002168AE /* Level_3.json in Resources */ = {isa = PBXBuildFile; fileRef = 82AF42C41D53B7B9002168AE /* Level_3.json */; };
+		82AF42CA1D53B7B9002168AE /* Level_4.json in Resources */ = {isa = PBXBuildFile; fileRef = 82AF42C51D53B7B9002168AE /* Level_4.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		82AF42971D52FFEA002168AE /* Emoji World.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Emoji World.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82AF429A1D52FFEA002168AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		82AF429C1D52FFEA002168AE /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		82AF429E1D52FFEA002168AE /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		82AF42A01D52FFEA002168AE /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		82AF42A31D52FFEA002168AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		82AF42A51D52FFEA002168AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82AF42A81D52FFEA002168AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82AF42AA1D52FFEA002168AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82AF42B01D530287002168AE /* Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
+		82AF42B21D5313D0002168AE /* 2DArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = 2DArray.swift; sourceTree = "<group>"; };
+		82AF42B41D5315A0002168AE /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		82AF42B61D531D7B002168AE /* Emoji.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Emoji.atlas; sourceTree = "<group>"; };
+		82AF42BA1D532B11002168AE /* Surface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Surface.swift; sourceTree = "<group>"; };
+		82AF42BC1D532C55002168AE /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		82AF42C11D53B7B9002168AE /* Level_0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_0.json; sourceTree = "<group>"; };
+		82AF42C21D53B7B9002168AE /* Level_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_1.json; sourceTree = "<group>"; };
+		82AF42C31D53B7B9002168AE /* Level_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_2.json; sourceTree = "<group>"; };
+		82AF42C41D53B7B9002168AE /* Level_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_3.json; sourceTree = "<group>"; };
+		82AF42C51D53B7B9002168AE /* Level_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_4.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +78,34 @@
 		82AF42991D52FFEA002168AE /* Emoji World */ = {
 			isa = PBXGroup;
 			children = (
+				82AF42C01D53B7B9002168AE /* Levels */,
 				82AF429A1D52FFEA002168AE /* AppDelegate.swift */,
-				82AF429C1D52FFEA002168AE /* GameScene.sks */,
 				82AF429E1D52FFEA002168AE /* GameScene.swift */,
+				82AF42B01D530287002168AE /* Emoji.swift */,
+				82AF42BC1D532C55002168AE /* Extensions.swift */,
+				82AF42B41D5315A0002168AE /* Level.swift */,
+				82AF42BA1D532B11002168AE /* Surface.swift */,
+				82AF42B21D5313D0002168AE /* 2DArray.swift */,
 				82AF42A01D52FFEA002168AE /* GameViewController.swift */,
 				82AF42A21D52FFEA002168AE /* Main.storyboard */,
-				82AF42A51D52FFEA002168AE /* Assets.xcassets */,
 				82AF42A71D52FFEA002168AE /* LaunchScreen.storyboard */,
 				82AF42AA1D52FFEA002168AE /* Info.plist */,
+				82AF42A51D52FFEA002168AE /* Assets.xcassets */,
+				82AF42B61D531D7B002168AE /* Emoji.atlas */,
 			);
 			path = "Emoji World";
+			sourceTree = "<group>";
+		};
+		82AF42C01D53B7B9002168AE /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				82AF42C11D53B7B9002168AE /* Level_0.json */,
+				82AF42C21D53B7B9002168AE /* Level_1.json */,
+				82AF42C31D53B7B9002168AE /* Level_2.json */,
+				82AF42C41D53B7B9002168AE /* Level_3.json */,
+				82AF42C51D53B7B9002168AE /* Level_4.json */,
+			);
+			path = Levels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,9 +167,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82AF429D1D52FFEA002168AE /* GameScene.sks in Resources */,
 				82AF42A91D52FFEA002168AE /* LaunchScreen.storyboard in Resources */,
+				82AF42CA1D53B7B9002168AE /* Level_4.json in Resources */,
+				82AF42C81D53B7B9002168AE /* Level_2.json in Resources */,
+				82AF42C61D53B7B9002168AE /* Level_0.json in Resources */,
 				82AF42A61D52FFEA002168AE /* Assets.xcassets in Resources */,
+				82AF42B71D531D7B002168AE /* Emoji.atlas in Resources */,
+				82AF42C71D53B7B9002168AE /* Level_1.json in Resources */,
+				82AF42C91D53B7B9002168AE /* Level_3.json in Resources */,
 				82AF42A41D52FFEA002168AE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,8 +186,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82AF42B51D5315A0002168AE /* Level.swift in Sources */,
 				82AF429F1D52FFEA002168AE /* GameScene.swift in Sources */,
+				82AF42B31D5313D0002168AE /* 2DArray.swift in Sources */,
+				82AF42BD1D532C55002168AE /* Extensions.swift in Sources */,
 				82AF42A11D52FFEA002168AE /* GameViewController.swift in Sources */,
+				82AF42BB1D532B11002168AE /* Surface.swift in Sources */,
+				82AF42B11D530287002168AE /* Emoji.swift in Sources */,
 				82AF429B1D52FFEA002168AE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
