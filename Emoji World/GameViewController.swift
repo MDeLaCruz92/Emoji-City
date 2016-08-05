@@ -35,10 +35,12 @@ class GameViewController: UIViewController {
         scene = GameScene(size: skView.bounds.size)
         scene.scaleMode = .AspectFill
         
+        scene.swipeHandler = handleSwipe
+        
         // Present the scene.
         skView.presentScene(scene)
         
-        level = Level(filename: "Level_3")
+        level = Level(filename: "Level_1")
         scene.level = level
         scene.addTiles()
 
@@ -56,4 +58,24 @@ class GameViewController: UIViewController {
         scene.addSpritesForEmojis(newEmojis)
     }
     
+    func handleSwipe(swap: Swap) {
+        view.userInteractionEnabled = false
+        
+        level.performSwap(swap)
+        
+        scene.animateSwap(swap) {
+            self.view.userInteractionEnabled = true
+    }
+    
 }
+
+}
+
+
+
+
+
+
+
+
+

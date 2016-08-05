@@ -74,6 +74,31 @@ func emojiAtColumn(column: Int, row: Int) -> Emoji? {
         return tiles[column, row]
     }
     
-  
+    func performSwap(swap: Swap) {
+        let columnA = swap.emojiA.column
+        let rowA = swap.emojiA.row
+        let columnB = swap.emojiB.column
+        let rowB = swap.emojiB.row
+        
+        emojis[columnA, rowA] = swap.emojiB
+        swap.emojiB.column = columnA
+        swap.emojiB.row = rowA
+        
+        emojis[columnB, rowB] = swap.emojiA
+        swap.emojiA.column = columnB
+        swap.emojiA.row = rowB
+    }
+    
+    
 
 }
+
+
+
+
+
+
+
+
+
+

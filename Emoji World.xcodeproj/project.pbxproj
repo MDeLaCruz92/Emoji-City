@@ -24,6 +24,7 @@
 		82AF42C81D53B7B9002168AE /* Level_2.json in Resources */ = {isa = PBXBuildFile; fileRef = 82AF42C31D53B7B9002168AE /* Level_2.json */; };
 		82AF42C91D53B7B9002168AE /* Level_3.json in Resources */ = {isa = PBXBuildFile; fileRef = 82AF42C41D53B7B9002168AE /* Level_3.json */; };
 		82AF42CA1D53B7B9002168AE /* Level_4.json in Resources */ = {isa = PBXBuildFile; fileRef = 82AF42C51D53B7B9002168AE /* Level_4.json */; };
+		82AF42CC1D543270002168AE /* Swap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AF42CB1D543270002168AE /* Swap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		82AF42C31D53B7B9002168AE /* Level_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_2.json; sourceTree = "<group>"; };
 		82AF42C41D53B7B9002168AE /* Level_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_3.json; sourceTree = "<group>"; };
 		82AF42C51D53B7B9002168AE /* Level_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_4.json; sourceTree = "<group>"; };
+		82AF42CB1D543270002168AE /* Swap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				82AF42C01D53B7B9002168AE /* Levels */,
 				82AF429A1D52FFEA002168AE /* AppDelegate.swift */,
 				82AF429E1D52FFEA002168AE /* GameScene.swift */,
+				82AF42CB1D543270002168AE /* Swap.swift */,
 				82AF42B01D530287002168AE /* Emoji.swift */,
 				82AF42BC1D532C55002168AE /* Extensions.swift */,
 				82AF42B41D5315A0002168AE /* Level.swift */,
@@ -194,6 +197,7 @@
 				82AF42BB1D532B11002168AE /* Surface.swift in Sources */,
 				82AF42B11D530287002168AE /* Emoji.swift in Sources */,
 				82AF429B1D52FFEA002168AE /* AppDelegate.swift in Sources */,
+				82AF42CC1D543270002168AE /* Swap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
