@@ -1,10 +1,135 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Atp-ah-tmM">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Bubblegum.ttf">
+            <string>BubbleGum</string>
+        </array>
+    </customFonts>
     <scenes>
+        <!--IntroVC-->
+        <scene sceneID="tPk-db-QL0">
+            <objects>
+                <viewController id="Atp-ah-tmM" customClass="IntroVC" customModule="Emoji_World" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a3c-nU-hsa"/>
+                        <viewControllerLayoutGuide type="bottom" id="qTz-HN-F8S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Os-Ks-pmQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmojiCityBG" translatesAutoresizingMaskIntoConstraints="NO" id="Fvl-kG-0dC">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwM-zm-Esy">
+                                <rect key="frame" x="132" y="666" width="150" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="6bq-wu-ycR"/>
+                                    <constraint firstAttribute="height" constant="50" id="SK6-h3-uGZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BubbleGum" family="BubbleGum" pointSize="35"/>
+                                <state key="normal" title="Start" backgroundImage="PlayEmoji">
+                                    <color key="titleColor" red="1" green="0.054549863464734893" blue="0.57156710104013797" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startGameTapped:" destination="Atp-ah-tmM" eventType="touchUpInside" id="HaP-lS-PTI"/>
+                                    <segue destination="adD-ay-yb5" kind="show" identifier="PressPlay" id="Lcw-4L-cLX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Fvl-kG-0dC" firstAttribute="leading" secondItem="5Os-Ks-pmQ" secondAttribute="leading" id="LuN-4V-uyl"/>
+                            <constraint firstItem="qTz-HN-F8S" firstAttribute="top" secondItem="Fvl-kG-0dC" secondAttribute="bottom" id="Nzu-zk-7Fm"/>
+                            <constraint firstAttribute="trailing" secondItem="Fvl-kG-0dC" secondAttribute="trailing" id="duL-4r-hB3"/>
+                            <constraint firstItem="lwM-zm-Esy" firstAttribute="centerX" secondItem="Fvl-kG-0dC" secondAttribute="centerX" id="eeO-IP-ggY"/>
+                            <constraint firstItem="qTz-HN-F8S" firstAttribute="top" secondItem="lwM-zm-Esy" secondAttribute="bottom" constant="20" id="j0s-zc-umq"/>
+                            <constraint firstItem="Fvl-kG-0dC" firstAttribute="top" secondItem="5Os-Ks-pmQ" secondAttribute="top" id="qkd-Ol-EKx"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PE0-YW-Yl6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1936" y="324"/>
+        </scene>
+        <!--How To PlayVC-->
+        <scene sceneID="emY-Zt-cLS">
+            <objects>
+                <viewController id="adD-ay-yb5" customClass="HowToPlayVC" customModule="Emoji_World" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZcK-vu-K14"/>
+                        <viewControllerLayoutGuide type="bottom" id="grj-oE-Qeo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ctI-Oe-zqN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCx-dB-wYz">
+                                <rect key="frame" x="132" y="666" width="150" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="aAl-Oe-waX"/>
+                                    <constraint firstAttribute="width" constant="150" id="zXJ-BU-gnN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BubbleGum" family="BubbleGum" pointSize="30"/>
+                                <state key="normal" title="Ready" backgroundImage="PlayEmoji">
+                                    <color key="titleColor" red="1" green="0.05454986346" blue="0.57156710099999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="ReadyGoTapped:" destination="adD-ay-yb5" eventType="touchUpInside" id="yDC-T1-eKe"/>
+                                    <segue destination="BV1-FR-VrT" kind="show" identifier="ReadyGo" id="g9M-Ju-TYO"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You're on a time limit! Match 3 or more emojis to score enough points to complete the goal score!  " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="ThQ-9M-bMb">
+                                <rect key="frame" x="20" y="145" width="374" height="107.66666666666666"/>
+                                <fontDescription key="fontDescription" name="BubbleGum" family="BubbleGum" pointSize="25"/>
+                                <color key="textColor" red="0.31305593279999999" green="0.80686142319999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How To Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="YRm-sN-cQJ">
+                                <rect key="frame" x="20" y="45" width="374" height="38"/>
+                                <fontDescription key="fontDescription" name="BubbleGum" family="BubbleGum" pointSize="35"/>
+                                <color key="textColor" red="0.31305593279999999" green="0.80686142319999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The &quot;SHAMBLES&quot; button allows you to reshuffle! Use it wisely because it uses up a move!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="dpK-fk-qms">
+                                <rect key="frame" x="20" y="260.66666666666669" width="374" height="145"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="145" id="idq-jI-pbH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BubbleGum" family="BubbleGum" pointSize="25"/>
+                                <color key="textColor" red="0.31305593279999999" green="0.80686142319999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.35724530880900218" green="0.35724530880900218" blue="0.35724530880900218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="YRm-sN-cQJ" firstAttribute="trailing" secondItem="ctI-Oe-zqN" secondAttribute="trailingMargin" id="9DA-d6-LKb"/>
+                            <constraint firstItem="YRm-sN-cQJ" firstAttribute="top" secondItem="ZcK-vu-K14" secondAttribute="bottom" constant="25" id="CcW-cM-zip"/>
+                            <constraint firstItem="dpK-fk-qms" firstAttribute="top" secondItem="ThQ-9M-bMb" secondAttribute="bottom" constant="8" symbolic="YES" id="DNS-6m-goV"/>
+                            <constraint firstItem="RCx-dB-wYz" firstAttribute="centerX" secondItem="ctI-Oe-zqN" secondAttribute="centerX" id="EeQ-kt-a7a"/>
+                            <constraint firstItem="ThQ-9M-bMb" firstAttribute="trailing" secondItem="ctI-Oe-zqN" secondAttribute="trailingMargin" id="Uhw-op-4Fu"/>
+                            <constraint firstItem="grj-oE-Qeo" firstAttribute="top" secondItem="RCx-dB-wYz" secondAttribute="bottom" constant="20" id="V1S-6Z-SEc"/>
+                            <constraint firstItem="YRm-sN-cQJ" firstAttribute="leading" secondItem="ctI-Oe-zqN" secondAttribute="leadingMargin" id="YWC-CL-HvK"/>
+                            <constraint firstItem="dpK-fk-qms" firstAttribute="leading" secondItem="ctI-Oe-zqN" secondAttribute="leadingMargin" id="a8b-U4-SiU"/>
+                            <constraint firstItem="dpK-fk-qms" firstAttribute="trailing" secondItem="ctI-Oe-zqN" secondAttribute="trailingMargin" id="h9G-C3-l0X"/>
+                            <constraint firstItem="ThQ-9M-bMb" firstAttribute="leading" secondItem="ctI-Oe-zqN" secondAttribute="leadingMargin" id="hR3-Gv-tSk"/>
+                            <constraint firstItem="ThQ-9M-bMb" firstAttribute="top" secondItem="ctI-Oe-zqN" secondAttribute="top" constant="145" id="t6D-Zd-Fmf"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3hg-DQ-rAO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1211.25" y="322.18309859154931"/>
+        </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
@@ -14,13 +139,164 @@
                         <viewControllerLayoutGuide type="bottom" id="qHh-Mt-9TT"/>
                     </layoutGuides>
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9IZ-s4-Blw">
+                                <rect key="frame" x="28" y="70" width="358" height="73.333333333333343"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="syo-wL-L6y">
+                                        <rect key="frame" x="0.0" y="0.0" width="179" height="73.333333333333343"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Timer:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="AYg-1F-uQt">
+                                                <rect key="frame" x="0.0" y="0.0" width="179" height="35"/>
+                                                <fontDescription key="fontDescription" name="BubbleGum" family="BubbleGum" pointSize="30"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <size key="shadowOffset" width="-3" height="-3"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="DHz-kG-2wu">
+                                                <rect key="frame" x="0.0" y="35" width="179" height="38.333333333333343"/>
+                                                <fontDescription key="fontDescription" name="BubbleGum" family="BubbleGum" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <size key="shadowOffset" width="-1" height="-1"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1Kc-Dl-Eig">
+                                        <rect key="frame" x="179" y="0.0" width="179" height="73.333333333333343"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moves:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="7av-bs-2bz">
+                                                <rect key="frame" x="0.0" y="0.0" width="179" height="35"/>
+                                                <fontDescription key="fontDescription" name="BubbleGum" family="BubbleGum" pointSize="30"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <size key="shadowOffset" width="-3" height="-3"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="4Lg-q4-DiD">
+                                                <rect key="frame" x="0.0" y="35" width="179" height="38.333333333333343"/>
+                                                <fontDescription key="fontDescription" name="BubbleGum" family="BubbleGum" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <size key="shadowOffset" width="-1" height="-1"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CtF-2t-Sc9">
+                                <rect key="frame" x="20" y="255.66666666666669" width="374" height="225.00000000000006"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="225" id="Ir3-A1-6b2"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="cbz-h7-W3Q">
+                                <rect key="frame" x="8" y="648" width="398" height="68"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uDC-m7-Lr9">
+                                        <rect key="frame" x="0.0" y="0.0" width="78.666666666666671" height="68"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qce-Qg-q5P">
+                                                <rect key="frame" x="0.0" y="0.0" width="78.666666666666671" height="35"/>
+                                                <fontDescription key="fontDescription" name="BubbleGum" family="BubbleGum" pointSize="30"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <size key="shadowOffset" width="0.0" height="-3"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k13-g0-BDg">
+                                                <rect key="frame" x="0.0" y="35" width="78.666666666666671" height="33"/>
+                                                <fontDescription key="fontDescription" name="BubbleGum" family="BubbleGum" pointSize="30"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <size key="shadowOffset" width="-1" height="-1"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1O-XW-KHD">
+                                        <rect key="frame" x="92.666666666666657" y="0.0" width="195.33333333333334" height="68"/>
+                                        <fontDescription key="fontDescription" name="BubbleGum" family="BubbleGum" pointSize="20"/>
+                                        <state key="normal" title="Shambles" backgroundImage="Shambles">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="shambleBtnTapped:" destination="BV1-FR-VrT" eventType="touchUpInside" id="g13-an-Ox7"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9oS-LR-4sW">
+                                        <rect key="frame" x="302" y="0.0" width="96" height="68"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fin-Dz-gIG">
+                                                <rect key="frame" x="0.0" y="0.0" width="96" height="35"/>
+                                                <fontDescription key="fontDescription" name="BubbleGum" family="BubbleGum" pointSize="30"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <size key="shadowOffset" width="0.0" height="-3"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eX-kw-gjE">
+                                                <rect key="frame" x="0.0" y="35" width="96" height="33"/>
+                                                <fontDescription key="fontDescription" name="BubbleGum" family="BubbleGum" pointSize="30"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <size key="shadowOffset" width="-1" height="-1"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1d3-tL-kXy">
+                                <rect key="frame" x="20" y="25" width="35" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="Aca-Ax-1J8"/>
+                                    <constraint firstAttribute="height" constant="30" id="GAn-Ec-0gl"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="music"/>
+                                <connections>
+                                    <action selector="musicBGButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="jCr-Ol-5EW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="9IZ-s4-Blw" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leadingMargin" constant="8" id="55F-Wp-M10"/>
+                            <constraint firstItem="1d3-tL-kXy" firstAttribute="top" secondItem="8aa-yV-Osq" secondAttribute="bottom" constant="5" id="AO7-oD-UXO"/>
+                            <constraint firstItem="CtF-2t-Sc9" firstAttribute="centerY" secondItem="3se-qz-xqx" secondAttribute="centerY" id="C2j-oT-XCt"/>
+                            <constraint firstItem="CtF-2t-Sc9" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leadingMargin" id="C9G-zq-avy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9IZ-s4-Blw" secondAttribute="trailing" constant="8" id="CjH-Gc-50X"/>
+                            <constraint firstItem="9IZ-s4-Blw" firstAttribute="top" secondItem="8aa-yV-Osq" secondAttribute="bottom" constant="50" id="Gwa-YH-MUa"/>
+                            <constraint firstItem="1d3-tL-kXy" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leadingMargin" id="LOC-qS-4Lp"/>
+                            <constraint firstItem="cbz-h7-W3Q" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" constant="8" id="QDw-eb-UtA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CtF-2t-Sc9" secondAttribute="trailing" id="XsT-8d-gWL"/>
+                            <constraint firstAttribute="trailing" secondItem="cbz-h7-W3Q" secondAttribute="trailing" constant="8" id="Yvq-5d-YTw"/>
+                            <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="cbz-h7-W3Q" secondAttribute="bottom" constant="20" id="u25-61-KLR"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="gameOverImg" destination="CtF-2t-Sc9" id="ZZ7-kx-k7k"/>
+                        <outlet property="labelGoal" destination="k13-g0-BDg" id="VmT-zq-gEd"/>
+                        <outlet property="labelMoves" destination="4Lg-q4-DiD" id="e4T-O2-SeY"/>
+                        <outlet property="labelScore" destination="8eX-kw-gjE" id="d2c-Z7-dc4"/>
+                        <outlet property="labelTimer" destination="DHz-kG-2wu" id="euA-QU-fQO"/>
+                        <outlet property="shamblesBtn" destination="Q1O-XW-KHD" id="R7A-Qt-odV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-504" y="324"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="EmojiCityBG" width="640" height="960"/>
+        <image name="PlayEmoji" width="600" height="195"/>
+        <image name="Shambles" width="100" height="36"/>
+        <image name="music" width="100" height="100"/>
+    </resources>
 </document>
