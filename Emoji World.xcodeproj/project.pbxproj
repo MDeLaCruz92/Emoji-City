@@ -209,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				82AF429E1D52FFEA002168AE /* GameScene.swift */,
+				82AAF42D1DE2A620005D53E5 /* Storyboards */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -282,7 +283,6 @@
 				82AF42C01D53B7B9002168AE /* Levels */,
 				82AAF42F1DE2A675005D53E5 /* Extensions */,
 				82D230D11DF4C07C009C2775 /* Protocols */,
-				82AAF42D1DE2A620005D53E5 /* Storyboards */,
 				8239D6F71D565A7500FECD3F /* Sounds */,
 				82AAF42E1DE2A645005D53E5 /* Supporting Files */,
 				82AF42A51D52FFEA002168AE /* Assets.xcassets */,

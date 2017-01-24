@@ -35,11 +35,22 @@ class IntroVC: UIViewController {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "PressPlay" {
-      segue.destination as! HowToPlayVC
+      _ = segue.destination as! HowToPlayVC
     }
   }
   
+//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    if segue.identifier == "PickCategory" {
+//      let controller = segue.destination as! CategoryPickerVC
+//      controller.selectedCategoryName = categoryName
+//    }
+//  }
   
+//  @IBAction func categoryPickerDidPickCategory(_ segue: UIStoryboardSegue) {
+//    let controller = segue.source as! CategoryPickerVC
+//    categoryName = controller.selectedCategoryName
+//    categoryLabel.text = categoryName
+//  }
   
   
   

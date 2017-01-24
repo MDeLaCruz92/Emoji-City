@@ -35,7 +35,7 @@ class HowToPlayVC: UIViewController {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "ReadyGo" {
-      segue.destination as! GameViewController
+      _ = segue.destination as! GameViewController
     }
   }
   
