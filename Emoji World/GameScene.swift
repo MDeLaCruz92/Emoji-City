@@ -6,15 +6,11 @@
 //  Copyright (c) 2016 Michael De La Cruz. All rights reserved.
 //
 
-
 import SpriteKit
 
 class GameScene: SKScene {
-  
   var swipeHandler: ((Swap) -> ())?
-  
   var level: Level!
-  
   var selectionSprite = SKSpriteNode()
   
   fileprivate var swipeFromColumn: Int?
@@ -22,21 +18,17 @@ class GameScene: SKScene {
   
   let TileWidth: CGFloat = 32.0
   let TileHeight: CGFloat = 36.0
-  
   let gameLayer = SKNode()
   let emojisLayer = SKNode()
   let tilesLayer = SKNode()
   let maskLayer = SKNode()
   let cropLayer = SKCropNode()
   
-  
   let swapSound = SKAction.playSoundFileNamed("Brrr.wav", waitForCompletion: false)
   let invalidSwapSound = SKAction.playSoundFileNamed("Circuit.wav", waitForCompletion: false)
   let matchSound = SKAction.playSoundFileNamed("A Nine.wav", waitForCompletion: false)
   let fallingEmojiSound = SKAction.playSoundFileNamed("Laser Beam.wav", waitForCompletion: false)
   let addEmojiSound = SKAction.playSoundFileNamed("Bub.wav", waitForCompletion: false)
-  //let playBtnSound = SKAction.playSoundFileNamed("Play.wav", waitForCompletion: false)
-  
   
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder) is not used in this app")
@@ -51,7 +43,6 @@ class GameScene: SKScene {
     let background = SKSpriteNode(imageNamed: "EmojiCityCV")
     background.size = size
     addChild(background)
-    
     addChild(gameLayer)
     
     let layerPosition = CGPoint(
@@ -60,23 +51,15 @@ class GameScene: SKScene {
     
     emojisLayer.position = layerPosition
     gameLayer.addChild(tilesLayer)
-    
     tilesLayer.position = layerPosition
     gameLayer.addChild(emojisLayer)
-    
-    //gameLayer.addChild(cropLayer)
-    
-    //maskLayer.position = layerPosition
-    //cropLayer.maskNode = maskLayer
-    
     gameLayer.isHidden = true
-    
     swipeFromColumn = nil
     swipeFromRow = nil
     
     let _ = SKLabelNode(fontNamed: "Bubblegum")
   }
-  
+  // MARK: Adding Tiles and Sprites method
   func addTiles() {
     for row in 0..<NumRows {
       for column in 0..<NumColumns {
@@ -99,15 +82,12 @@ class GameScene: SKScene {
           && level.emojiAtColumn(column, row: row) != nil
         let bottomRight = (column < NumColumns) && (row > 0)
           && level.emojiAtColumn(column, row: row - 1) != nil
-        
-        // tiles are named from 0 to 15, according to the bitmask that is
-        // made by combining these four values.
         let value =
           Int(topLeft.hashValue) |
             Int(topRight.hashValue) << 1 |
             Int(bottomLeft.hashValue) << 2 |
             Int(bottomRight.hashValue) << 3
-        // Values 0 (no tiles), 6 and 9 (two opposite tiles) are not drawn.
+        
         if value != 0 && value != 6 && value != 9 {
           let name = String(format: "Tile_%ld", value)
           let tileNode = SKSpriteNode(imageNamed: name)
@@ -121,6 +101,7 @@ class GameScene: SKScene {
       }
     }
   }
+  
   func addSpritesForEmojis(_ emojis: Set<Emoji>) {
     for emoji in emojis {
       let sprite = SKSpriteNode(imageNamed: emoji.emojiType.spriteName)
@@ -144,7 +125,7 @@ class GameScene: SKScene {
           ]))
     }
   }
-  
+  // MARK: Point methods
   func pointForColumn(_ column: Int, row: Int) -> CGPoint {
     return CGPoint(
       x: CGFloat(column)*TileWidth + TileWidth/2,
@@ -159,17 +140,13 @@ class GameScene: SKScene {
       return (false, 0, 0)  // invalid location
     }
   }
-  // calls touchesBegan() whenever the user puts her finger on the screen.
+  // MARK: Touches method
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    // s1 converts the touch location, if any, to a point relative to the emojisLayer.
     guard let touch = touches.first else { return }
     let location = touch.location(in: emojisLayer)
-    // s2 it finds out if the touch is inside a sqaure on the level grid by calling a method you'll write in a moment.
     let (success, column, row) = convertPoint(location)
     if success {
-      // s3 the method verifies that the touch is on a emoji rather than on an empty square.
       if let emoji = level.emojiAtColumn(column, row: row) {
-        // s4 it records the column and row where the swipe started so you can compare them later to find the direction of the swipe.
         swipeFromColumn = column
         swipeFromRow = row
         showSelectionIndicatorForEmoji(emoji)
@@ -178,17 +155,12 @@ class GameScene: SKScene {
   }
   
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-    // s1 if swipeFromColumn is nil, then either the swipe began outside the valid area or the game has already swapped the emojis and you need to ignore the rest of the motion.
     guard swipeFromColumn != nil else { return }
-    
-    // s2 calculate the row and column numbers currently under the player's finger.
     guard let touch = touches.first else { return }
     let location = touch.location(in: emojisLayer)
     
     let (success, column, row) = convertPoint(location)
     if success {
-      
-      // s3 the method here figures out the direction of the player's swipe by simply comparing the new column and row numbers to the prev ones.
       var horzDelta = 0, vertDelta = 0
       if column < swipeFromColumn! {          // swipe left
         horzDelta = -1
@@ -200,12 +172,10 @@ class GameScene: SKScene {
         vertDelta = 1
       }
       
-      // s4 method only performs the swap if the player swiped out of the old square.
       if horzDelta != 0 || vertDelta != 0 {
         trySwapHorizontal(horzDelta, vertical: vertDelta)
         
         hideSelectionIndicator()
-        // 5 By setting swipeFromColumn back to nil, the game will ignore the rest of this swipe motion.
         swipeFromColumn = nil
       }
     }
@@ -288,7 +258,6 @@ class GameScene: SKScene {
   func animateInvalidSwap(_ swap: Swap, completion: @escaping () -> ()) {
     let spriteA = swap.emojiA.sprite!
     let spriteB = swap.emojiB.sprite!
-    
     
     spriteA.zPosition = 100
     spriteB.zPosition = 90
@@ -393,7 +362,6 @@ class GameScene: SKScene {
     run(SKAction.wait(forDuration: longestDuration), completion: completion)
   }
   
-  
   func animateScore(for chain: Chain) {
     // Figure out what the midpoint of the chain is.
     let firstSprite = chain.firstEmoji().sprite!
@@ -438,12 +406,3 @@ class GameScene: SKScene {
   
   
 }
-
-
-
-
-
-
-
-
-

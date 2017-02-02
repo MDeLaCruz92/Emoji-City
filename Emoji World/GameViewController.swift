@@ -11,44 +11,6 @@ import SpriteKit
 import AVFoundation
 
 class GameViewController: UIViewController {
-  
-  //    lazy var musicBackGround: AVAudioPlayer? = {
-  //        guard let url = Bundle.main.url(forResource: "Rush", withExtension: "wav") else {
-  //            return nil
-  //        }
-  //        do {
-  //            let player = try AVAudioPlayer(contentsOf: url)
-  //            player.numberOfLoops = -1
-  //            return player
-  //        } catch {
-  //            return nil
-  //        }
-  //    } ()
-  
-  func initAudio() {
-    let path = Bundle.main.url(forResource: "George Street Shuffle", withExtension: "mp3")
-    
-    do {
-      musicBackGround = try AVAudioPlayer(contentsOf: path!)
-      musicBackGround.prepareToPlay()
-      musicBackGround.numberOfLoops = -1
-      musicBackGround.play()
-    } catch let err as NSError {
-      print(err.debugDescription)
-    }
-  }
-  
-  
-  @IBAction func musicBGButtonPressed(_ sender: UIButton) {
-    if (musicBackGround.isPlaying) {
-      musicBackGround.pause()
-      sender.alpha = 0.2
-    } else {
-      musicBackGround.play()
-      sender.alpha = 1.0
-    }
-  }
-  
   var scene: GameScene!
   var level: Level!
   var currentLevelNum = 0
@@ -58,18 +20,13 @@ class GameViewController: UIViewController {
   var countDown = Timer()
   var musicBackGround: AVAudioPlayer!
   
-  // MARK: Timer Method
-  
-  // Sets the timer
-  func startTimer() {
-    countDown = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.startTimer), userInfo: nil, repeats: false)
-    level.timer -= 1
-    labelTimer.text = "\(level.timer)"
-    
-    if level.timer == 0 {
-      countDown.invalidate()
-      gameOverImg.image = UIImage(named: "GameOver")
-      showGameOver()
+  @IBAction func musicBGButtonPressed(_ sender: UIButton) {
+    if (musicBackGround.isPlaying) {
+      musicBackGround.pause()
+      sender.alpha = 0.2
+    } else {
+      musicBackGround.play()
+      sender.alpha = 1.0
     }
   }
   
@@ -103,12 +60,11 @@ class GameViewController: UIViewController {
     initAudio()
   }
   
+  // MARK: Configure the view/scene
   func setupLevel(_ levelNum: Int) {
-    // Configure the view.
     let skView = view as! SKView
     skView.isMultipleTouchEnabled = false
     
-    // Create and configure the scene.
     scene = GameScene(size: skView.bounds.size)
     scene.scaleMode = .aspectFill
     level = Level(filename: "Level_\(levelNum)")
@@ -116,12 +72,12 @@ class GameViewController: UIViewController {
     scene.swipeHandler = handleSwipe
     scene.addTiles()
     gameOverImg.isHidden = true
-    // Present the scene.
     skView.presentScene(scene)
     
     beginGame()
   }
   
+  // MARK: shuffle and begin game method
   func beginGame() {
     score = 0
     remainderMoves = level.maximumMoves
@@ -142,6 +98,7 @@ class GameViewController: UIViewController {
     scene.addSpritesForEmojis(newEmojis)
   }
   
+  // MARK: Handles the swipes and matches
   func handleSwipe(_ swap: Swap) {
     view.isUserInteractionEnabled = false
     
@@ -156,7 +113,6 @@ class GameViewController: UIViewController {
         self.view.isUserInteractionEnabled = true
       }
     }
-    
   }
   
   func handleMatches() {
@@ -181,6 +137,7 @@ class GameViewController: UIViewController {
       }
     }
   }
+  
   func beginNextTurn() {
     level.resetComboMultiplier()
     level.detectPossibleSwaps()
@@ -195,8 +152,7 @@ class GameViewController: UIViewController {
     labelTimer.text = String(format: "%ld", level.timer)
   }
   
-  // Ends the game if goal is not completed or time runs out.
-  // Completes the level if the goal is successful.
+  // MARK: Determines if the player win or losses
   func decrementMoves() {
     remainderMoves -= 1
     labelUpdate()
@@ -213,6 +169,7 @@ class GameViewController: UIViewController {
     }
   }
   
+  // MARK: GameOver show/hide
   func showGameOver() {
     shamblesBtn.isUserInteractionEnabled = false
     gameOverImg.isHidden = false
@@ -230,6 +187,33 @@ class GameViewController: UIViewController {
     gameOverImg.isHidden = true
     scene.isUserInteractionEnabled = true
     setupLevel(currentLevelNum)
+  }
+  
+  // MARK: Audio
+  func initAudio() {
+    let path = Bundle.main.url(forResource: "George Street Shuffle", withExtension: "mp3")
+    
+    do {
+      musicBackGround = try AVAudioPlayer(contentsOf: path!)
+      musicBackGround.prepareToPlay()
+      musicBackGround.numberOfLoops = -1
+      musicBackGround.play()
+    } catch let err as NSError {
+      print(err.debugDescription)
+    }
+  }
+  
+  // MARK: Timer Methods
+  func startTimer() {
+    countDown = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.startTimer), userInfo: nil, repeats: false)
+    level.timer -= 1
+    labelTimer.text = "\(level.timer)"
+    
+    if level.timer == 0 {
+      countDown.invalidate()
+      gameOverImg.image = UIImage(named: "GameOver")
+      showGameOver()
+    }
   }
   
   func stopTimer() {
