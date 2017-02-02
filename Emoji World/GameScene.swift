@@ -9,6 +9,7 @@
 import SpriteKit
 
 class GameScene: SKScene {
+  // MARK: Properties
   var swipeHandler: ((Swap) -> ())?
   var level: Level!
   var selectionSprite = SKSpriteNode()
@@ -30,11 +31,11 @@ class GameScene: SKScene {
   let fallingEmojiSound = SKAction.playSoundFileNamed("Laser Beam.wav", waitForCompletion: false)
   let addEmojiSound = SKAction.playSoundFileNamed("Bub.wav", waitForCompletion: false)
   
+  //MARK: init(size: size) and init coder methods
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder) is not used in this app")
   }
   
-  //MARK: init(size: size)
   override init(size: CGSize) {
     super.init(size: size)
     
@@ -59,7 +60,7 @@ class GameScene: SKScene {
     
     let _ = SKLabelNode(fontNamed: "Bubblegum")
   }
-  // MARK: Adding Tiles and Sprites method
+  // MARK: Add Tiles & Sprites method
   func addTiles() {
     for row in 0..<NumRows {
       for column in 0..<NumColumns {
@@ -140,7 +141,7 @@ class GameScene: SKScene {
       return (false, 0, 0)  // invalid location
     }
   }
-  // MARK: Touches method
+  // MARK: Touches methods
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     guard let touch = touches.first else { return }
     let location = touch.location(in: emojisLayer)
@@ -180,25 +181,7 @@ class GameScene: SKScene {
       }
     }
   }
-  
-  func trySwapHorizontal(_ horzDelta: Int, vertical vertDelta: Int) {
-    // s1 calculate the column and row numbers of the emoji to swap with.
-    let toColumn = swipeFromColumn! + horzDelta
-    let toRow = swipeFromRow! + vertDelta
-    // s2 using guard because it's possible that the toColumn and toRow is outside the 9x9 grid.
-    guard toColumn >= 0 && toColumn < NumColumns else { return }
-    guard toRow >= 0 && toRow < NumRows else { return }
-    // s3 this checks to make sure that there is actually a emoji at the new position.
-    if let toEmoji = level.emojiAtColumn(toColumn, row: toRow),
-      let fromEmoji = level.emojiAtColumn(swipeFromColumn!, row: swipeFromRow!) {
-      
-      if let handler = swipeHandler {
-        let swap = Swap(emojiA: fromEmoji, emojiB: toEmoji)
-        handler(swap)
-      }
-    }
-  }
-  
+
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     if selectionSprite.parent != nil && swipeFromColumn != nil {
       hideSelectionIndicator()
@@ -210,6 +193,23 @@ class GameScene: SKScene {
   override func touchesCancelled(_ touches: Set<UITouch>?, with event: UIEvent?) {
     if let touches = touches {
       touchesEnded(touches, with: event)
+    }
+  }
+  // MARK: Swap methods
+  func trySwapHorizontal(_ horzDelta: Int, vertical vertDelta: Int) {
+    let toColumn = swipeFromColumn! + horzDelta
+    let toRow = swipeFromRow! + vertDelta
+  
+    guard toColumn >= 0 && toColumn < NumColumns else { return }
+    guard toRow >= 0 && toRow < NumRows else { return }
+    
+    if let toEmoji = level.emojiAtColumn(toColumn, row: toRow),
+      let fromEmoji = level.emojiAtColumn(swipeFromColumn!, row: swipeFromRow!) {
+      
+      if let handler = swipeHandler {
+        let swap = Swap(emojiA: fromEmoji, emojiB: toEmoji)
+        handler(swap)
+      }
     }
   }
   
@@ -234,27 +234,6 @@ class GameScene: SKScene {
     
   }
   
-  func showSelectionIndicatorForEmoji(_ emoji: Emoji) {
-    if selectionSprite.parent != nil {
-      selectionSprite.removeFromParent()
-    }
-    
-    if let sprite = emoji.sprite {
-      let texture = SKTexture(imageNamed: emoji.emojiType.highlightedSpriteName)
-      selectionSprite.size = CGSize(width: TileWidth, height: TileHeight)
-      selectionSprite.run(SKAction.setTexture(texture))
-      
-      sprite.addChild(selectionSprite)
-      selectionSprite.alpha = 1.0
-    }
-  }
-  
-  func hideSelectionIndicator() {
-    selectionSprite.run(SKAction.sequence([
-      SKAction.fadeOut(withDuration: 0.3),
-      SKAction.removeFromParent()]))
-  }
-  
   func animateInvalidSwap(_ swap: Swap, completion: @escaping () -> ()) {
     let spriteA = swap.emojiA.sprite!
     let spriteB = swap.emojiB.sprite!
@@ -276,7 +255,7 @@ class GameScene: SKScene {
     run(invalidSwapSound)
     
   }
-  // loops all chains and all emojis in each chain, triggering the animations
+  // MARK: Animate methods
   func animateMatchedEmojis(_ chains: Set<Chain>, completion: @escaping () -> ()) {
     for chain in chains {
       animateScore(for: chain)
@@ -291,25 +270,20 @@ class GameScene: SKScene {
         }
       }
     }
-    // ensures the game will only continue after the animations finish
     run(matchSound)
     run(SKAction.wait(forDuration: 0.3), completion: completion)
   }
   
   func animateFallingEmojis(_ columns: [[Emoji]], completion: @escaping () -> ()) {
-    // s1 the number of falling emojis may vary, so have to compute it
     var longestDuration: TimeInterval = 0
     for array in columns {
       for (idx, emoji) in array.enumerated() {
         let newPosition = pointForColumn(emoji.column, row: emoji.row)
-        // s2 this calculation works because fillHoles() guarantees that lower emojis are first in the array.
         let delay = 0.05 + 0.15*TimeInterval(idx)
-        // s3 the duration of the animation is based on how far the emoji has to fall(0.1s per tile) but you can change it up
         let sprite = emoji.sprite!
         let duration = TimeInterval(((sprite.position.y - newPosition.y) / TileHeight) * 0.1)
-        // s4 calculates which animation is the longest. This is where the game has to wait before it may continue
+        
         longestDuration = max(longestDuration, duration + delay)
-        // s5 performs the animation which consists of a delay, movement and a sound effect
         let moveAction = SKAction.move(to: newPosition, duration: duration)
         moveAction.timingMode = .easeOut
         sprite.run(
@@ -318,21 +292,16 @@ class GameScene: SKScene {
             SKAction.group([moveAction, fallingEmojiSound])]))
       }
     }
-    // s6 wait until all the emojis have fallen down before allowing the gameplay to continue
     run(SKAction.wait(forDuration: longestDuration), completion: completion)
   }
   
-  // emoji objects are now in reverse order in the array, top to bottom.
   func animateNewEmojis(_ columns: [[Emoji]], completion: @escaping () -> ()) {
-    // The game is not allowed to continue until all the animations are complete.
     var longestDuration: TimeInterval = 0
     
     for array in columns {
-      // The new emoji sprite should start out just above the first tile in the column.
       let startRow = array[0].row + 1
       
       for (idx, emoji) in array.enumerated() {
-        // created a new sprite for the emoji
         let sprite = SKSpriteNode(imageNamed: emoji.emojiType.spriteName)
         sprite.size = CGSize(width: TileWidth, height: TileHeight)
         sprite.position = pointForColumn(emoji.column, row: startRow)
@@ -340,10 +309,9 @@ class GameScene: SKScene {
         emoji.sprite = sprite
         
         let delay = 0.1 + 0.2 * TimeInterval(array.count - idx - 1)
-        
         let duration = TimeInterval(startRow - emoji.row) * 0.1
         longestDuration = max(longestDuration, duration + delay)
-        
+
         let newPosition = pointForColumn(emoji.column, row: emoji.row)
         let moveAction = SKAction.move(to: newPosition, duration: duration)
         moveAction.timingMode = .easeOut
@@ -358,19 +326,16 @@ class GameScene: SKScene {
             ]))
       }
     }
-    
     run(SKAction.wait(forDuration: longestDuration), completion: completion)
   }
   
   func animateScore(for chain: Chain) {
-    // Figure out what the midpoint of the chain is.
     let firstSprite = chain.firstEmoji().sprite!
     let lastSprite = chain.lastEmoji().sprite!
     let centerPosition = CGPoint(
       x: (firstSprite.position.x + lastSprite.position.x)/2,
       y: (firstSprite.position.y + lastSprite.position.y)/2 - 8)
     
-    // Added a label for the score that slowly floats up.
     let scoreLabel = SKLabelNode(fontNamed: "Bubblegum")
     scoreLabel.fontSize = 23
     scoreLabel.text = String(format: "%ld", chain.score)
@@ -398,11 +363,31 @@ class GameScene: SKScene {
     action.timingMode = .easeOut
     gameLayer.run(action, completion: completion)
   }
+  // MARK: SelectionIndicator methods
+  func showSelectionIndicatorForEmoji(_ emoji: Emoji) {
+    if selectionSprite.parent != nil {
+      selectionSprite.removeFromParent()
+    }
+    
+    if let sprite = emoji.sprite {
+      let texture = SKTexture(imageNamed: emoji.emojiType.highlightedSpriteName)
+      selectionSprite.size = CGSize(width: TileWidth, height: TileHeight)
+      selectionSprite.run(SKAction.setTexture(texture))
+      
+      sprite.addChild(selectionSprite)
+      selectionSprite.alpha = 1.0
+    }
+  }
   
+  func hideSelectionIndicator() {
+    selectionSprite.run(SKAction.sequence([
+      SKAction.fadeOut(withDuration: 0.3),
+      SKAction.removeFromParent()]))
+  }
+  
+  // MARK: Remove sprites method
   func removeAllEmojiSprites() {
     emojisLayer.removeAllChildren()
   }
-  
-  
   
 }

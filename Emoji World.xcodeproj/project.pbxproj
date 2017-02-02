@@ -26,7 +26,6 @@
 		824AF0D81DECC17000405D33 /* Level_14.json in Resources */ = {isa = PBXBuildFile; fileRef = 824AF0D31DECC17000405D33 /* Level_14.json */; };
 		824AF0DA1DEE322800405D33 /* IntroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824AF0D91DEE322800405D33 /* IntroVC.swift */; };
 		824AF0E01DEE765300405D33 /* HowToPlayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824AF0DF1DEE765300405D33 /* HowToPlayVC.swift */; };
-		824AF0E41DEE8F1C00405D33 /* Rush.wav in Resources */ = {isa = PBXBuildFile; fileRef = 824AF0E31DEE8F1C00405D33 /* Rush.wav */; };
 		824AF0E61DEE902100405D33 /* Play.wav in Resources */ = {isa = PBXBuildFile; fileRef = 824AF0E51DEE902100405D33 /* Play.wav */; };
 		824AF0F51DEF49DC00405D33 /* Level_22.json in Resources */ = {isa = PBXBuildFile; fileRef = 824AF0E71DEF49DC00405D33 /* Level_22.json */; };
 		824AF0F61DEF49DC00405D33 /* Level_23.json in Resources */ = {isa = PBXBuildFile; fileRef = 824AF0E81DEF49DC00405D33 /* Level_23.json */; };
@@ -105,7 +104,6 @@
 		824AF0D31DECC17000405D33 /* Level_14.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_14.json; sourceTree = "<group>"; };
 		824AF0D91DEE322800405D33 /* IntroVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroVC.swift; sourceTree = "<group>"; };
 		824AF0DF1DEE765300405D33 /* HowToPlayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToPlayVC.swift; sourceTree = "<group>"; };
-		824AF0E31DEE8F1C00405D33 /* Rush.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Rush.wav; sourceTree = "<group>"; };
 		824AF0E51DEE902100405D33 /* Play.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Play.wav; sourceTree = "<group>"; };
 		824AF0E71DEF49DC00405D33 /* Level_22.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_22.json; sourceTree = "<group>"; };
 		824AF0E81DEF49DC00405D33 /* Level_23.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_23.json; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 				824A47F21D5ECFE500D45EFF /* Laser Beam.wav */,
 				824AF0E51DEE902100405D33 /* Play.wav */,
 				8209A62F1E0AD74F00108C68 /* George Street Shuffle.mp3 */,
-				824AF0E31DEE8F1C00405D33 /* Rush.wav */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -278,8 +275,8 @@
 				82AAF42A1DE255A7005D53E5 /* Model */,
 				82AAF4291DE255A3005D53E5 /* View */,
 				82AAF4271DE2558A005D53E5 /* Controller */,
-				82AF42C01D53B7B9002168AE /* Levels */,
 				82AAF42F1DE2A675005D53E5 /* Extensions */,
+				82AF42C01D53B7B9002168AE /* Levels */,
 				8239D6F71D565A7500FECD3F /* Sounds */,
 				82AAF42E1DE2A645005D53E5 /* Supporting Files */,
 				82AF42A51D52FFEA002168AE /* Assets.xcassets */,
@@ -497,7 +494,6 @@
 				82AF42C91D53B7B9002168AE /* Level_3.json in Resources */,
 				824A47F61D5ECFE500D45EFF /* Laser Beam.wav in Resources */,
 				824AF0CB1DEC23DF00405D33 /* Level_6.json in Resources */,
-				824AF0E41DEE8F1C00405D33 /* Rush.wav in Resources */,
 				824AF0CC1DEC23DF00405D33 /* Level_7.json in Resources */,
 				82AF42A41D52FFEA002168AE /* Main.storyboard in Resources */,
 				824AF1061DEF4A2800405D33 /* Level_21.json in Resources */,

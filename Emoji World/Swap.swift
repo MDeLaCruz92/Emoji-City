@@ -28,30 +28,3 @@ func ==(lhs: Swap, rhs: Swap) -> Bool {
   return (lhs.emojiA == rhs.emojiA && lhs.emojiB == rhs.emojiB) ||
     (lhs.emojiB == rhs.emojiA && lhs.emojiA == rhs.emojiB)
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

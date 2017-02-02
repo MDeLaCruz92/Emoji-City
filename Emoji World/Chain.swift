@@ -6,12 +6,9 @@
 //  Copyright © 2016 Michael De La Cruz. All rights reserved.
 //
 
-
 class Chain: Hashable, CustomStringConvertible {
   var emojis = [Emoji]()  // used array to remember the order of emojis objects
-  
   var score = 0
-  
   
   enum ChainType: CustomStringConvertible {
     case horizontal
@@ -59,10 +56,3 @@ class Chain: Hashable, CustomStringConvertible {
 func ==(lhs:Chain, rhs: Chain) -> Bool {
   return lhs.emojis == rhs.emojis
 }
-
-
-
-
-
-
-
