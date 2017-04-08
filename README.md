@@ -1,6 +1,7 @@
 # Emoji-City
 This app is successfully published on the App Store. 
-This is a fun and easy-to-play match 3 game app. This app was built using SpriteKit, JSON, Segues, Object-Oriented concepts, and more. The design of this app was made using Sketch 3, and is currently written in Swift 3.
+This is a fun and easy-to-play match 3 game app. App was built using SpriteKit, JSON, MVC, Core Graphics, AVFoundation and more. The design of this app was made using Sketch 3, and is currently written in Swift 3.
+
 
 App link: https://itunes.apple.com/us/app/emoji-city/id1181788117?ls=1&mt=8 
 
