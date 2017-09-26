@@ -6,4 +6,4 @@ App link: https://itunes.apple.com/us/app/emoji-city/id1181788117?ls=1&mt=8
 
 https://media.giphy.com/media/e56xQigH5PK80/giphy.gif
 
-http://gph.is/2xrYfV2
+![](http://i.imgur.com/Ssfp7.gif)
