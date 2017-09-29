@@ -4,7 +4,7 @@ This is a fun and easy-to-play match 3 game app. This app utilizes SpriteKit, JS
 
 App link: https://itunes.apple.com/us/app/emoji-city/id1181788117?ls=1&mt=8 
 
-![](https://media.giphy.com/media/e56xQigH5PK80/giphy.gif)
+![](https://media.giphy.com/media/xT9Igv0wucUdxI0hsk/giphy.gif) ![](https://media.giphy.com/media/3ohhwLvFC5bMBr6Osg/giphy.gif)
 
 
 # How to play this game?
