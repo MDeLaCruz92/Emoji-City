@@ -1,3 +1,5 @@
+# Emoji City
+
 # What does this app consist of?
 This is a fun and easy-to-play match 3 game app. This app utilizes SpriteKit, JSON, MVC, Core Graphics, AVFoundation and more. The design of this app was made using Sketch 3, and is currently written in Swift 3/Xcode 8. Soon to be updated to Swift4/Xcode 9 :D
 
