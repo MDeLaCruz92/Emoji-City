@@ -1,12 +1,10 @@
 # Emoji City
-
+![](https://media.giphy.com/media/xT9Igv0wucUdxI0hsk/giphy.gif) ![](https://media.giphy.com/media/3ohhwLvFC5bMBr6Osg/giphy.gif)
 # What does this app consist of?
 This is a fun and easy-to-play match 3 game app. This app utilizes SpriteKit, JSON, MVC, Core Graphics, AVFoundation and more. The design of this app was made using Sketch 3, and is currently written in Swift 3/Xcode 8. Soon to be updated to Swift4/Xcode 9 :D
 
 
 App link: https://itunes.apple.com/us/app/emoji-city/id1181788117?ls=1&mt=8 
-
-![](https://media.giphy.com/media/xT9Igv0wucUdxI0hsk/giphy.gif) ![](https://media.giphy.com/media/3ohhwLvFC5bMBr6Osg/giphy.gif)
 
 
 # How to play this game?
